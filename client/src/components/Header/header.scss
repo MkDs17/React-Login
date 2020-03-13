@@ -1,0 +1,37 @@
+@import 'src/styles/vars';
+
+#header {
+  width: 100%;
+  font-family: Poppins;
+
+  & .menu {
+    background-color: #F8B739;
+    color: $grey-font-color;
+    text-align: center;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    border-radius: 0px 0px 3px 3px;
+
+    & .transition {
+     
+      & a {
+        width: 100%;
+      }
+      
+      & .item {
+        display: flex;
+        align-items: center;  
+        
+        & svg {
+          margin-right: .5em;
+        }
+      }
+
+    }
+
+  }
+  
+}
