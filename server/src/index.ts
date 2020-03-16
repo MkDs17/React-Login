@@ -18,15 +18,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes 
-const companyRoutes = require('./routes/api/Company')
-const employeeRoutes = require('./routes/api/Employee')
+import routes from "./routes/api";
+app.use("/api", routes);
 
-app.use('/api/companies', companyRoutes)
-app.use('/api/employees', employeeRoutes)
-
-app.use('/api', (req: Request, res: Response) => res.send({
-    message: 'Welcome to the API dude!',
-}))
 app.use('/', (req: Request, res: Response) => res.send({
     message: 'Welcome to the beginning of nothingness.',
 }))

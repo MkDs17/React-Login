@@ -5,9 +5,10 @@ import { AiOutlineLogout, AiOutlineLogin } from 'react-icons/ai';
 
 import './header.scss';
 
-const Header = () => {
+const Header = ({ disconnect }) => {
 
   return (
+    
     <div id="header">
       <Menu>
         <NavLink to="/"><Menu.Item header>TSNodeTypeORM | Redux | Login --- StarterKit</Menu.Item></NavLink>
@@ -15,7 +16,7 @@ const Header = () => {
           <Dropdown item icon='user circle' simple direction='left'>
             <Dropdown.Menu>
               <NavLink to="/login"><Dropdown.Item><AiOutlineLogin /> Login </Dropdown.Item></NavLink>
-              <NavLink to="/disconnect"><Dropdown.Item><AiOutlineLogout /> Disconnect</Dropdown.Item></NavLink>
+              <NavLink to="/" onClick={() => {disconnect()}}><Dropdown.Item><AiOutlineLogout /> Disconnect</Dropdown.Item></NavLink>
             </Dropdown.Menu>
           </Dropdown>
         </Menu.Menu>        

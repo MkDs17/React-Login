@@ -12,11 +12,12 @@ class App extends React.Component {
 
   render() {
 
-    const { isUser } = this.props;
+    const { isUser, isAdmin, handleDisconnect } = this.props;
 
     return (
       <div id="app">
-        <Header />
+        <ReactNotifications />
+        <Header disconnect={handleDisconnect} />
         <Switch>
             <Route path="/login">
               {isUser ? 'est un utilisateur' : <Login />}

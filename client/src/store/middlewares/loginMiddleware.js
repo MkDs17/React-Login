@@ -1,6 +1,6 @@
 import axios from 'axios';
-/* import addNotification from '../addNotification'; */
-import { CONNECT_USER, isAdmin } from '../reducer/user';
+import addNotification from '../addNotification';
+import { CONNECT_USER, isAdmin, isUser } from '../reducer/user';
 
 const loginMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -11,11 +11,9 @@ const loginMiddleware = (store) => (next) => (action) => {
         password,
       } = action;
 
-      console.log(action)
-
-      /* axios({
+      axios({
         method: 'post',
-        url: 'http://api.mr-webdev.com/api/login',
+        url: 'api/auth/login',
         headers: { 'Content-Type': 'application/json' },
         data: {
           username,
@@ -24,13 +22,28 @@ const loginMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           addNotification('login-success');
-          store.dispatch(isAdmin(response.data.username));
-          localStorage.setItem('token', response.data.token);
+          switch (response.data.infos.role) {
+            case 'ADMIN': {
+              store.dispatch(isAdmin(response.data.infos));
+              localStorage.setItem('token', response.data.token);
+              break;
+            }
+            case 'USER': {
+              store.dispatch(isUser(response.data.infos));
+              localStorage.setItem('token', response.data.token);
+              break;
+            }
+            default: {
+              console.log('Huuuum, none of them')
+              break;
+            }
+          }
+          console.log(response)
         })
         .catch((error) => {
           addNotification('login-error');
           console.log('Houston ? We got trouble', error);
-        }); */
+        });
 
       break;
     }

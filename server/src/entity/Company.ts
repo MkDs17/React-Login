@@ -1,5 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
-import { Employee } from './Employee'
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, UpdateDateColumn} from "typeorm";
+import { User } from './User'
 
 @Entity()
 export class Company {
@@ -13,7 +13,15 @@ export class Company {
   @Column({ nullable: true })
   logo: string
 
-  @OneToMany(type => Employee, employee => employee.company)
-  employees: Employee[]
+  @Column()
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @Column()
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @OneToMany(type => User, user => user.company)
+  users: User[]
 
 }

@@ -1,0 +1,3 @@
+export default {
+    jwtSecret: "@QEGTUIJD802937FHD7D8S748728HJCJKSJGKLSKHM"
+  };

@@ -1,11 +1,42 @@
-import express = require('express')
-import { getRepository } from "typeorm"
-import { Company } from '../../entity/Company'
-import { JsonHandler } from '../../services/JsonHandler'
-const router = express.Router()
+import { Router } from "express";
+import CompanyController from "../../controllers/CompanyController";
 
-router.get('/', async (req: express.Request, res: express.Response) => {
-  const companies: Company[] = await getRepository(Company).find({ relations: ["employees"]})
+import { checkJwt } from "../../middlewares/checkJwt";
+import { checkRole } from "../../middlewares/checkRole";
+
+const router = Router();
+
+//Get all companies
+router.get("/", CompanyController.listAll);
+
+// Get one company
+router.get(
+  "/:id([0-9]+)",
+  CompanyController.getOneById
+);
+
+//Create a new company
+router.post("/", [checkJwt, checkRole(["ADMIN"])], CompanyController.newCompany);
+
+//Edit one company
+router.patch(
+  "/:id([0-9]+)",
+  [checkJwt, checkRole(["ADMIN"])],
+  CompanyController.editCompany
+);
+
+//Delete one company
+router.delete(
+  "/:id([0-9]+)",
+  [checkJwt, checkRole(["ADMIN"])],
+  CompanyController.deleteCompany
+);
+
+export default router;
+
+
+/* router.get('/', async (req: express.Request, res: express.Response) => {
+  const companies: Company[] = await getRepository(Company).find({ relations: ["users"]})
   res.send(companies)
 })
 
@@ -15,7 +46,7 @@ router.get('/:id', async (req: express.Request, res: express.Response) => {
     where: {
         id: companyId
     },
-    relations: ["employees"]
+    relations: ["users"]
     })
 
   res.send(company)
@@ -62,4 +93,4 @@ router.delete('/:id', async (req: express.Request, res: express.Response) => {
   res.send(response)
 })
 
-module.exports = router;
+module.exports = router; */
