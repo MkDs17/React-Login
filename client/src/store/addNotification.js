@@ -6,8 +6,6 @@ import 'animate.css';
 import { Icon } from 'semantic-ui-react';
 
 const addNotification = (status) => {
-  console.log('hey tiens ta notif');
-
   const basicConfig = {
     container: 'bottom-left',
     animationIn: ['animated', 'fadeIn'],
@@ -21,8 +19,8 @@ const addNotification = (status) => {
   switch (status) {
     case 'login-success': {
       store.addNotification({
-        title: 'Welcome Chief',
-        message: 'Welcome on board mister President !',
+        title: 'Welcome back',
+        message: 'What\'s up ?',
         type: 'success',
         ...basicConfig,        
       });
@@ -31,7 +29,7 @@ const addNotification = (status) => {
     case 'login-error': {
       store.addNotification({
         title: 'Attention please, attention please',
-        message: 'Hum, seems we got trouble chief !',
+        message: 'Hum, seems we got trouble here !',
         type: 'danger',
         ...basicConfig,
       });

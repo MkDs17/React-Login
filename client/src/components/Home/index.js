@@ -1,17 +1,19 @@
 import React from 'react';
+
 import './home.scss';
 
-class Home extends React.Component {
+const Home = () => {
 
-  render() {
-    return (
-      <>
-        <div className="block">
-          <h3>Coucou</h3>
-        </div>
-      </>
-    );
-  }
+  return (
+    
+    <div id="home">
+      <div className="home-block">
+        <h2>Homepage</h2>
+        <h3>Welcome dude</h3>
+      </div>
+    </div>
+    
+  );
 }
 
 export default Home;

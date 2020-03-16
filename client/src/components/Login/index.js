@@ -29,26 +29,33 @@ class Login extends React.Component {
 
     return (
       <>
-        <div className="login-page">
-          <div className="block-login">
-            <h2>Login</h2>
-            <Form onSubmit={this.onSubmitForm}>
-              <Form.Input
-                placeholder="Username"
-                value={this.state.username}
-                name="username"
-                onChange={this.changeInput}
-                type="text"
-              />
-              <Form.Input
-                placeholder="Password"
-                value={this.state.password}
-                name="password"
-                onChange={this.changeInput}
-                type="password"
-              />
-              <Button className="cstm-btn" type="submit">Submit</Button>
-            </Form>
+        <div id="login">
+          <div className="login-block">
+            <div className="login-title">
+              <h2>Login</h2>
+              <h3>Enter infos</h3>
+            </div>
+            
+            <div className="form">
+              <Form onSubmit={this.onSubmitForm}>
+                <Form.Input
+                  placeholder="Username"
+                  value={this.state.username}
+                  name="username"
+                  onChange={this.changeInput}
+                  type="text"
+                />
+                <Form.Input
+                  placeholder="Password"
+                  value={this.state.password}
+                  name="password"
+                  onChange={this.changeInput}
+                  type="password"
+                />
+                <Button className="cstm-btn" type="submit">Submit</Button>
+              </Form>
+            </div>
+            
           </div>
         </div>
         

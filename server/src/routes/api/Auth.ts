@@ -7,6 +7,6 @@ const router = Router();
 //Login route
 router.post("/login", AuthController.login);
 //Change my password
-router.post("/change-password", [checkJwt], AuthController.changePassword);
+router.post("/change-pwd", [checkJwt], AuthController.changePassword);
 
 export default router;

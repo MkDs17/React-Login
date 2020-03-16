@@ -1,28 +1,28 @@
 import { connect } from 'react-redux';
 
-import App from '../../components/App';
+import Dashboard from '../../components/Dashboard';
 
-import { disconnect } from '../../store/reducer/user';
+import { getAllUsers } from '../../store/reducer/user';
 
 // eslint-disable-next-line arrow-body-style
 const mapStateToProps = (state) => {
   return {
     isUser: state.user.isUser,
     isAdmin: state.user.isAdmin,
-    userInfos: state.user.infos,
+    allUsers: state.user.allUsers,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  handleDisconnect: () => {
-    const action = disconnect();
+  handleGetAllUsers: () => {
+    const action = getAllUsers();
     dispatch(action);
   },
 });
 
-const AppContainer = connect(
+const DashboardContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(Dashboard);
 
-export default AppContainer;
+export default DashboardContainer;

@@ -1,0 +1,37 @@
+@import 'src/styles/vars';
+
+#table {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+
+  & .table-block {
+    width: 65%;
+    padding: 2em;
+    margin: 2em;
+    background-color: white;
+    box-shadow: 1px 1px 10px #ccc;
+    border-radius: 5px;
+
+    & .table-title {      
+      margin-bottom: 1em;
+      display: inline-flex;
+      border-bottom: 3px solid $primary;
+
+      & h4 {
+        font-size: 1.1em;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+  
+    }
+
+    & .table-content {
+      width: 100%;
+
+      & .bold {
+        font-weight: 500;
+      }
+    }
+  }
+}

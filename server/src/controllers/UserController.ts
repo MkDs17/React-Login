@@ -10,7 +10,7 @@ class UserController{
     //Get users from database
     const userRepository = getRepository(User);
     const users = await userRepository.find({
-      select: ["id", "username", "role", "designation"],
+      select: ["id", "name", "role", "designation"],
       relations: ["company"]
     });
 
@@ -37,11 +37,12 @@ class UserController{
 
   static newUser = async (req: Request, res: Response) => {
     //Get parameters from the body
-    let { username, password, designation, companyId, role } = req.body;
-    console.log(req.body)
+    let { username, password, name, designation, companyId, role } = req.body;
+
     let user = new User();
     user.username = username;
     user.password = password;
+    user.name = name;
     user.designation = designation;
     user.company = companyId;
     user.role = role;
@@ -74,7 +75,7 @@ class UserController{
     const id = req.params.id;
 
     //Get values from the body
-    const { username, password, designation, companyId, role } = req.body;
+    const { username, name, designation, companyId, role } = req.body;
 
     //Try to find user on database
     const userRepository = getRepository(User);
@@ -89,16 +90,10 @@ class UserController{
 
     //Validate the new values on model
     user.username = username;
-    user.password = password;
+    user.name = name;
     user.designation = designation;
     user.company = companyId;
     user.role = role;
-    
-    const errors = await validate(user);
-    if (errors.length > 0) {
-        res.status(400).send(errors);
-        return;
-    }
 
     //Try to safe, if fails, that means username already in use
     try {

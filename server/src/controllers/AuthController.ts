@@ -5,6 +5,7 @@ import { validate } from "class-validator";
 
 import { User } from "../entity/User";
 import config from "../config/config";
+import { Company } from "../entity/Company";
 
 class AuthController {
   static login = async (req: Request, res: Response) => {
@@ -18,7 +19,10 @@ class AuthController {
     const userRepository = getRepository(User);
     let user: User;
     try {
-      user = await userRepository.findOneOrFail({ where: { username } });
+      user = await userRepository.findOneOrFail({ 
+        where: { username },
+        relations: ["company"],
+      });
     } catch (error) {
       res.status(401).send('Username or Password are incorrect');
     }
@@ -38,9 +42,10 @@ class AuthController {
 
     const infos = {
       id: user.id,
-      username: user.username,
+      name: user.name,
       designation: user.designation,
       role: user.role,
+      company: user.company,
     }
 
     //Send the jwt in the response
@@ -50,6 +55,8 @@ class AuthController {
   static changePassword = async (req: Request, res: Response) => {
     //Get ID from JWT
     const id = res.locals.jwtPayload.userId;
+
+    console.log(req, res)
 
     //Get parameters from the body
     const { oldPassword, newPassword } = req.body;
