@@ -1,0 +1,52 @@
+@import 'src/styles/vars';
+
+#footer {
+  width: 100%;
+  padding: 1em;
+  background-color: $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & .login-link {
+    margin-right: .5em;
+  }
+  & .login-link:hover {
+    margin-right: .5em;
+    color: inherit;
+    cursor: inherit;
+  }
+
+  & .footer-logo {
+
+    & .image {
+      display: contents;
+    }
+    
+    & img {
+      width: 30px;
+      margin: 0 10px;
+    }
+    
+  }
+
+  & .footer-tech {
+    margin: 0 10px;
+    font-size: 1.1em;
+    color: $secondary;
+    font-weight: bold;
+    cursor: pointer;
+
+    & .segment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: .2em .7em;
+
+      & span {
+        margin-right: 0;
+      }
+    }
+  }
+  
+}

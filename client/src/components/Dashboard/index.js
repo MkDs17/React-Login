@@ -29,7 +29,7 @@ class Dashboard extends React.Component {
           
           <div className="dashboard-title">
             <h2>Dashboard</h2>
-            <h3>Welcome {user.username} !</h3>
+            <h3>Welcome {user.name} !</h3>
           </div>
 
           <p>Happy to see you again dear <span className="highlight">{user.name}</span></p>

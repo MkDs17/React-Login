@@ -1,0 +1,25 @@
+@import 'src/styles/vars';
+
+#technos {
+  & .item {
+
+    & i {
+      min-width: 37px;
+      color: rgba(0, 0, 0, 0.7);
+    }
+    & .description {
+      font-size: .85em;
+    }
+
+  }
+
+  & .custom-header {
+    font-family: Poppins;
+    display: flex;
+    align-items: center;
+  }
+
+  & .custom-icon {
+    font-size: 18px;
+  }
+}
