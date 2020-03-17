@@ -10,6 +10,7 @@ import Footer from '../Footer';
 import Login from '../../containers/Login';
 import Home from '../Home';
 import Dashboard from '../../containers/Dashboard';
+import Settings from '../Settings';
 
 class App extends React.Component {
 
@@ -24,12 +25,21 @@ class App extends React.Component {
         <Switch>
           <Route path="/login">
             {isUser ? <Redirect to="/dashboard" /> : <Login />}
-            {/* <Dashboard user={userInfos} /> */}
           </Route>
-          <Route exact path="/dashboard">
-            <Dashboard user={userInfos} />
-          </Route>
-          <Route exact path="/" component={Home} />
+          
+          {isUser &&
+            <Route exact path="/dashboard">
+              <Dashboard user={userInfos} />
+           </Route>
+          }
+          
+          {isUser &&
+            <Route exact path="/settings">
+              <Settings user={userInfos} />
+            </Route>
+          }
+
+          <Route path="/" component={Home} />
         </Switch>
         <Footer />
       </div>

@@ -26,7 +26,7 @@ class UserController{
     const userRepository = getRepository(User);
     try {
       const user = await userRepository.findOneOrFail(id, {
-        select: ["id", "username", "role"], //We dont want to send the password on response
+        select: ["id", "name", "role", "designation"], //We dont want to send the password on response
         relations: ["company"]
       });
       res.send(user);
@@ -73,15 +73,18 @@ class UserController{
   static editUser = async (req: Request, res: Response) => {
     //Get the ID from the url
     const id = req.params.id;
-
+    
     //Get values from the body
-    const { username, name, designation, companyId, role } = req.body;
+    const { name, designation, role } = req.body;
 
     //Try to find user on database
     const userRepository = getRepository(User);
     let user;
     try {
-        user = await userRepository.findOneOrFail(id);
+        user = await userRepository.findOneOrFail(id, {
+          select: ["id", "name", "role", "designation"],
+          relations: ["company"]
+        });
     } catch (error) {
         //If not found, send a 404 response
         res.status(404).send("User not found");
@@ -89,10 +92,8 @@ class UserController{
     }
 
     //Validate the new values on model
-    user.username = username;
     user.name = name;
     user.designation = designation;
-    user.company = companyId;
     user.role = role;
 
     //Try to safe, if fails, that means username already in use
@@ -102,8 +103,8 @@ class UserController{
         res.status(409).send("username already in use");
         return;
     }
-    //After all send a 204 (no content, but accepted) response
-    res.status(204).send();
+    //After all send a 200 response with user infos
+    res.status(200).send("informations updated");
   };
 
   static deleteUser = async (req: Request, res: Response) => {

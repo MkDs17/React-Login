@@ -10,10 +10,16 @@ const initialState = {
 // --- action types
 export const CONNECT_USER = 'CONNECT_USER';
 const DISCONNECT = 'DISCONNECT';
+
 const IS_ADMIN = 'IS_ADMIN';
 const IS_USER = 'IS_USER';
+
 export const GET_ALL_USERS = 'GET_ALL_USERS';
+export const GET_ONE_USER = 'GET_ONE_USER';
 const UPDATE_USERS_ARRAY = 'UPDATE_USERS_ARRAY';
+
+export const CHANGE_USER_SETTINGS = 'CHANGE_USER_SETTINGS';
+const UPDATE_USER_INFOS_ARRAY = 'UPDATE_USER_INFOS_ARRAY';
 
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -47,6 +53,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         allUsers: action.value,
       };
+
+    case UPDATE_USER_INFOS_ARRAY:
+      return {
+        ...state,
+        infos: action.value,
+      };
     
     default: return state;
   }
@@ -74,8 +86,21 @@ export const isUser = (value) => ({
 export const getAllUsers = () => ({
   type: GET_ALL_USERS,
 })
+export const getOneUser = (value) => ({
+  type: GET_ONE_USER,
+  value,
+})
 export const updateUsersArray = (value) => ({
   type: UPDATE_USERS_ARRAY,
+  value,
+})
+
+export const changeUserSettings = (value) => ({
+  type: CHANGE_USER_SETTINGS,
+  value,
+})
+export const updateUserInfosArray = (value) => ({
+  type: UPDATE_USER_INFOS_ARRAY,
   value,
 })
 
