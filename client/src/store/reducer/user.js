@@ -1,6 +1,5 @@
 // --- initial state
 const initialState = {
-  // la valeur courante de l'input
   isUser: false,
   isAdmin: false,
   infos: [],
@@ -19,6 +18,7 @@ export const GET_ONE_USER = 'GET_ONE_USER';
 const UPDATE_USERS_ARRAY = 'UPDATE_USERS_ARRAY';
 
 export const CHANGE_USER_SETTINGS = 'CHANGE_USER_SETTINGS';
+export const ADMIN_EDIT_USER_SETTINGS = 'ADMIN_EDIT_USER_SETTINGS';
 const UPDATE_USER_INFOS_ARRAY = 'UPDATE_USER_INFOS_ARRAY';
 
 // --- Reducer
@@ -97,6 +97,10 @@ export const updateUsersArray = (value) => ({
 
 export const changeUserSettings = (value) => ({
   type: CHANGE_USER_SETTINGS,
+  value,
+})
+export const adminEditUserSettings = (value) => ({
+  type: ADMIN_EDIT_USER_SETTINGS,
   value,
 })
 export const updateUserInfosArray = (value) => ({

@@ -1,42 +1,67 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Form } from 'semantic-ui-react';
+import { Button, Form, Select } from 'semantic-ui-react';
 
 import './change-settings.scss';
 
 class ChangeSettings extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    const {
-      id,
-      name,
-      designation,
-      role,
-      company,
-    } = this.props.user
+    const { id, name, designation, role, company } = this.props.user
 
     this.state = {
       id,
       name,
       designation,
       role,
-      company,
-    };
-  }
+      company: company.id,
+    }
+  };
 
   changeInput = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value,
-    });
-  }
+    })
+  };
+
+  changeSelect = (evt, data) => {
+    console.log(data.value, data.name)
+    this.setState({
+      [data.name]: data.value,
+    })
+  };
 
   onSubmitForm = (evt) => {
+    const { isAdmin, onAdminSubmit, onSubmit} = this.props
     evt.preventDefault();
-    this.props.onSubmit(this.state);
+    // Check if admin send and an other middleware submit
+    { isAdmin ? onAdminSubmit(this.state) : onSubmit(this.state) }
   };
 
   render() {
+
+    // If user is also Admin shows more fields
+    const { isAdmin } = this.props
+    // Use for companyOptions maping
+    const companies = this.props.companies    
+    
+    // Used for the Selected Components
+    const { role, company } = this.state
+    
+
+    const roleOptions = [
+      { key: "USER", value: "USER", text: "User" },
+      { key: "ADMIN", value: "ADMIN", text: "Admin" },
+    ]
+
+    const companyOptions = companies.map(company => {
+      return { 
+        key: company.id, 
+        value: company.id, 
+        text: company.name 
+      }
+    })
 
     return (
       <>
@@ -45,7 +70,7 @@ class ChangeSettings extends React.Component {
             <Form.Group widths="equal">
               <Form.Input
                 fluid
-                placeholder="Name"
+                label="Name"
                 value={this.state.name}
                 name="name"
                 onChange={this.changeInput}
@@ -53,7 +78,7 @@ class ChangeSettings extends React.Component {
               />
               <Form.Input
                 fluid
-                placeholder="Designation"
+                label="Designation"
                 value={this.state.designation}
                 name="designation"
                 onChange={this.changeInput}
@@ -61,24 +86,13 @@ class ChangeSettings extends React.Component {
               />
             </Form.Group>
 
-            <Form.Group widths="equal">
-              <Form.Input
-                fluid
-                placeholder="Role"
-                value={this.state.role}
-                name="role"
-                onChange={this.changeInput}
-                type="text"
-              />
-              {/* <Form.Input
-                fluid
-                placeholder="Company"
-                value={this.state.company}
-                name="company"
-                onChange={this.changeInput}
-                type="text"
-              /> */}
-            </Form.Group>
+            { isAdmin &&
+              <Form.Group widths="equal">
+                <Form.Field control={Select} label="Role" options={roleOptions} value={role} name="role" onChange={this.changeSelect} />
+
+                <Form.Field control={Select} label="Company" options={companyOptions} value={company} name="company" onChange={this.changeSelect} />                
+              </Form.Group>
+            }
             
             <Button className="cstm-btn" type="submit">Submit</Button>
           </Form>

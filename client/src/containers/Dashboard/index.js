@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Dashboard from '../../components/Dashboard';
 
 import { getAllUsers } from '../../store/reducer/user';
+import { getAllCompanies } from '../../store/reducer/company';
 
 // eslint-disable-next-line arrow-body-style
 const mapStateToProps = (state) => {
@@ -16,6 +17,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   handleGetAllUsers: () => {
     const action = getAllUsers();
+    dispatch(action);
+  },
+  handleGetAllCompanies: () => {
+    const action = getAllCompanies();
     dispatch(action);
   },
 });

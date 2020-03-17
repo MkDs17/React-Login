@@ -28,6 +28,13 @@ router.patch(
   UserController.editUser
 );
 
+//Edit one user
+router.patch(
+  "/:id([0-9]+)/admin",
+  [checkJwt, checkRole(["ADMIN"])],
+  UserController.adminEditUser
+);
+
 //Delete one user
 router.delete(
   "/:id([0-9]+)",

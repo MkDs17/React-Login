@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { GET_ALL_USERS, GET_ONE_USER, updateUsersArray, CHANGE_USER_SETTINGS, getOneUser, updateUserInfosArray } from '../reducer/user';
+import { GET_ALL_USERS, GET_ONE_USER, CHANGE_USER_SETTINGS, ADMIN_EDIT_USER_SETTINGS, updateUsersArray, getOneUser, updateUserInfosArray } from '../reducer/user';
 
-const apiMiddleware = (store) => (next) => (action) => {
+const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_ALL_USERS: {
 
@@ -41,7 +41,7 @@ const apiMiddleware = (store) => (next) => (action) => {
 
     case CHANGE_USER_SETTINGS: {
       const token = localStorage.getItem('token');
-      const { id, name, designation, role, company } = action.value
+      const { id, name, designation } = action.value
 
       axios({
         method: 'patch',
@@ -52,9 +52,36 @@ const apiMiddleware = (store) => (next) => (action) => {
         },
         data: {
           name,
+          designation
+        }
+      })
+        .then((response) => {
+          store.dispatch(getOneUser(id))
+        })
+        .catch((error) => {
+          console.log('Houston ? We got trouble', error);
+        });
+
+      break;
+    }
+
+    case ADMIN_EDIT_USER_SETTINGS: {
+      console.log('ADMIN SUBMIIIIT:', action.value)
+      const token = localStorage.getItem('token');
+      const { id, name, designation, role, company } = action.value
+
+      axios({
+        method: 'patch',
+        url: `api/users/${id}/admin`,
+        headers: { 
+          'Content-Type': 'application/json', 
+          'auth': token,
+        },
+        data: {
+          name,
           designation,
           role,
-          companyId: 7
+          company
         }
       })
         .then((response) => {
@@ -73,4 +100,4 @@ const apiMiddleware = (store) => (next) => (action) => {
   }
 };
 
-export default apiMiddleware;
+export default userMiddleware;

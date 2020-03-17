@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    { this.props.isAdmin && this.props.handleGetAllUsers() }
+    { this.props.isAdmin && this.props.handleGetAllUsers() , this.props.handleGetAllCompanies() }
   }
 
   render() {

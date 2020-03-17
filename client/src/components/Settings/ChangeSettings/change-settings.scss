@@ -1,4 +1,22 @@
+@import 'src/styles/vars';
+
 #change-settings {
   width: 65%;
   margin: auto;
+  padding: 2em;
+  background-color: white;
+  box-shadow: 1px 1px 10px #ccc;
+  border-radius: 5px;
+
+  & .cstm-btn {
+    background-color: $primary;
+    color: white;
+    width: 100%;
+  }
+  & .cstm-btn:hover {
+    background-color: $primary-hover;
+    color: white;
+    box-shadow: 1px 1px 10px #e2e2e2;
+  }
+
 }

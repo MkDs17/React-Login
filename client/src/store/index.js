@@ -6,6 +6,7 @@ import reducer from './reducer';
 
 import loginMiddleWare from './middlewares/loginMiddleware';
 import userMiddleWare from './middlewares/userMiddleware';
+import companyMiddleWare from './middlewares/companyMiddleware';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -14,6 +15,7 @@ const enhancers = composeEnhancers(
   applyMiddleware(
     loginMiddleWare,
     userMiddleWare,
+    companyMiddleWare,
   ),
 );
 

@@ -107,6 +107,46 @@ class UserController{
     res.status(200).send("informations updated");
   };
 
+  static adminEditUser = async (req: Request, res: Response) => {
+    //Get the ID from the url
+    const id = req.params.id;
+
+    console.log(req)
+    
+    //Get values from the body
+    const { name, designation, role, company } = req.body;
+
+    //Try to find user on database
+    const userRepository = getRepository(User);
+    let user;
+    try {
+        user = await userRepository.findOneOrFail(id, {
+          select: ["id", "name", "role", "designation"],
+          relations: ["company"]
+        });
+    } catch (error) {
+        //If not found, send a 404 response
+        res.status(404).send("User not found");
+        return;
+    }
+
+    //Validate the new values on model
+    user.name = name
+    user.designation = designation
+    user.role = role
+    user.company.id = company
+
+    //Try to safe, if fails, that means username already in use
+    try {
+        await userRepository.save(user);
+    } catch (e) {
+        res.status(409).send("username already in use");
+        return;
+    }
+    //After all send a 200 response with user infos
+    res.status(200).send("informations updated");
+  };
+
   static deleteUser = async (req: Request, res: Response) => {
     //Get the ID from the url
     const id = req.params.id;
