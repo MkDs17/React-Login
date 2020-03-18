@@ -5,6 +5,9 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  overflow-y: auto;
+  overflow-x: none;
+  scroll-behavior: smooth;
 
   & .home-block {
     width: 95%;
@@ -13,19 +16,96 @@
     align-items: center;
     padding: 2em;
     margin: 1em;
-  
-    & h2 {
-      font-size: 2em;
-      font-weight: 900;
-      text-transform: uppercase;
+
+    & .shadow {
+      box-shadow: 1px 1px 10px #dedede;
+      border-radius: 4px;
+      position: relative;
     }
 
-    & h3 {
-      text-transform: uppercase;
-      font-size: 1.5em;
-      font-weight: 300;
-      color: $primary;
+    &-background {
+      /* background: center / cover url('/src/public/assets/img/react.svg'); */
+      background: center / cover url('/src/public/assets/img/login.svg');
+      position: absolute;
     }
-    
+
+    &-title {
+      margin-bottom: 2em;
+      
+      & h2 {
+        font-size: 2em;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+  
+      & h3 {
+        text-transform: uppercase;
+        font-size: 1.5em;
+        font-weight: 300;
+        color: $primary;
+      }
+    }
+
+    &-content {
+      width: 100%;
+      padding: 2em;
+      background-color: rgba($grey-background, .9);
+        
+      &-title {
+        font-size: 1.3em;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: $secondary;
+        border-left: 3px solid $secondary;        
+        padding-left: 5px;
+        padding: .3em;
+        border-radius: 3px;
+      }
+
+      & p {
+        font-size: .95em;
+        line-height: 1.3em;
+        margin: 1em 0;
+      }
+
+      & .label {
+        margin-right: 10px;
+      }
+
+      & .forAll {
+        color: $secondary;
+        & .header {
+          color: $secondary;
+        }
+      }
+      & .forUser {
+        color: $grey-font-color;
+        & .header {
+          color: $grey-font-color;
+        }
+      }
+      & .forAdmin {
+        color: $tertiary;
+        & .header {
+          color: $tertiary;
+        }
+      }
+
+      & .labelCustom {
+        color: white;
+        font-weight: 500;
+      }
+      & .forAllLabel {
+        background-color: $secondary;
+      }
+      & .forUserLabel {
+        background-color: $grey-font-color;
+      }
+      & .forAdminLabel {
+        background-color: $tertiary;
+      }
+
+    }
+
   }
 }
