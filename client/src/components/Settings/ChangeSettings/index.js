@@ -7,9 +7,7 @@ import './change-settings.scss';
 class ChangeSettings extends React.Component {
   constructor(props) {
     super(props)
-
     const { id, name, designation, role, company } = this.props.user
-
     this.state = {
       id,
       name,
@@ -32,10 +30,10 @@ class ChangeSettings extends React.Component {
     })
   };
 
-  onSubmitForm = (evt) => {
-    const { isAdmin, onAdminSubmit, onSubmit} = this.props
+  onSubmitForm = (evt, data) => {
+    const { isAdmin, isUser, onAdminSubmit, onSubmit} = this.props
     evt.preventDefault();
-    // Check if admin send and an other middleware submit
+    // Check if admin, send an other middleware submit
     { isAdmin ? onAdminSubmit(this.state) : onSubmit(this.state) }
   };
 
@@ -44,11 +42,9 @@ class ChangeSettings extends React.Component {
     // If user is also Admin shows more fields
     const { isAdmin } = this.props
     // Use for companyOptions maping
-    const companies = this.props.companies    
-    
+    const companies = this.props.companies
     // Used for the Selected Components
-    const { role, company } = this.state
-    
+    const { role, company } = this.state    
 
     const roleOptions = [
       { key: "USER", value: "USER", text: "User" },

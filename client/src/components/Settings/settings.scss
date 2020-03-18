@@ -34,7 +34,11 @@
     }
 
     & .settings-content {
-      width: 100%;
+      width: 65%;
+      padding: 2em;
+      background-color: white;
+      box-shadow: 1px 1px 10px #ccc;
+      border-radius: 5px;
     }
     
   }
