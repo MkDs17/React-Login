@@ -8,6 +8,7 @@
   overflow-y: auto;
   overflow-x: none;
   scroll-behavior: smooth;
+  position: relative;
 
   & .home-block {
     width: 95%;
@@ -21,12 +22,6 @@
       box-shadow: 1px 1px 10px #dedede;
       border-radius: 4px;
       position: relative;
-    }
-
-    &-background {
-      /* background: center / cover url('/src/public/assets/img/react.svg'); */
-      background: center / cover url('/src/public/assets/img/login.svg');
-      position: absolute;
     }
 
     &-title {
@@ -65,7 +60,7 @@
       & p {
         font-size: .95em;
         line-height: 1.3em;
-        margin: 1em 0;
+        margin: .5em 0;
       }
 
       & .label {
@@ -103,6 +98,28 @@
       }
       & .forAdminLabel {
         background-color: $tertiary;
+      }
+
+      &-access {
+        display: flex;
+        align-items: center;
+        color: $secondary;
+        font-weight: 700;
+        
+          
+        & p {
+          margin: 0 .5em;
+          color: $grey-font-color;
+          font-weight: 400;
+        }
+
+      }
+
+      &-link {
+        display: flex;
+        align-items: center;
+        color: $secondary;
+        font-weight: 700;
       }
 
     }

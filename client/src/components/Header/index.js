@@ -19,8 +19,8 @@ const Header = ({ disconnect, isUser }) => {
                 :
                 <NavLink to="/login"><Dropdown.Item>Login </Dropdown.Item></NavLink>
               }
-              {isUser && <NavLink to="/settings"><Dropdown.Item>Settings</Dropdown.Item></NavLink>}
-              <NavLink to="/" onClick={() => {disconnect()}}><Dropdown.Item>Disconnect</Dropdown.Item></NavLink>
+              { isUser && <NavLink to="/settings"><Dropdown.Item>Settings</Dropdown.Item></NavLink>}
+              { isUser && <NavLink to="/" onClick={() => {disconnect()}}><Dropdown.Item>Disconnect</Dropdown.Item></NavLink> }
             </Dropdown.Menu>
           </Dropdown>
         </Menu.Menu>        

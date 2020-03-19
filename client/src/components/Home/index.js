@@ -1,5 +1,6 @@
 import React from 'react';
 import { Label, List } from 'semantic-ui-react';
+import { Emoji } from 'emoji-mart';
 
 import './home.scss';
 
@@ -15,11 +16,8 @@ const Home = () => {
           <h2>Homepage</h2>
           <h3>Welcome dude</h3>
         </div>
-
         
         <div className="shadow">
-        <div className="home-block-background"></div>
-
           <div className="home-block-content">
             <div className="home-block-content-title">What's your app about ?</div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -120,6 +118,28 @@ const Home = () => {
               <Label className="labelCustom forUserLabel" as='a'>Restricted to logged users</Label>
               <Label className="labelCustom forAdminLabel" as='a'>Restricted to logged admin(s)</Label>
             </Label.Group>
+          </div>
+
+          <div className="home-block-content">
+            <div className="home-block-content-title">Want an access ?</div>
+            <p>it's not really complicated, the main combinations are:</p>
+            <p>username : password</p>
+            <p className="home-block-content-access">
+              <Emoji emoji='nerd_face' skin={3} set='google' size={22} />User Access
+              <Emoji emoji='point_right' skin={3} set='google' size={22} />
+              <p>user : user</p>
+            </p>
+            <p className="home-block-content-access">
+              <Emoji emoji='sunglasses' skin={3} set='google' size={22} />Admin Access
+              <Emoji emoji='point_right' skin={3} set='google' size={22} />
+              <p>admin : admin</p>
+            </p>
+          </div>
+
+          <div className="home-block-content">
+            <div className="home-block-content-title">Want to see the source code ?</div>
+            <p>The code is accessible on GitHub </p>
+            <p className="home-block-content-link"><Emoji emoji='point_right' skin={3} set='google' size={22} /><a href="https://github.com/MkDs17/TypeORM-React-Redux---Login">Follow this way</a></p>
           </div>
 
         </div>
