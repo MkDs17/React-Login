@@ -32,7 +32,7 @@ const addNotification = (status) => {
     case 'login-error': {
       customClass = "danger",
       emoji = "raised_back_of_hand",
-      title = "Attention please (x2)",
+      title = "Attention please",
       content = "Hum, seems we got trouble here !"
     }
     break;

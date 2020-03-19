@@ -24,7 +24,6 @@ class ChangeSettings extends React.Component {
   };
 
   changeSelect = (evt, data) => {
-    console.log(data.value, data.name)
     this.setState({
       [data.name]: data.value,
     })

@@ -16,7 +16,7 @@ class App extends React.Component {
 
   render() {
 
-    const { isUser, isAdmin, handleDisconnect, userInfos } = this.props;
+    const { isUser, handleDisconnect, userInfos } = this.props;
 
     return (
       <div id="app">

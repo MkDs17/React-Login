@@ -15,7 +15,7 @@ const Header = ({ disconnect, isUser }) => {
           <Dropdown item icon='user circle' simple direction='left'>
             <Dropdown.Menu>
               {isUser ? 
-                <NavLink to="/dashboard"><Dropdown.Item>Dashboard </Dropdown.Item></NavLink>
+                <NavLink to="/dashboard"><Dropdown.Item>Dashboard</Dropdown.Item></NavLink>
                 :
                 <NavLink to="/login"><Dropdown.Item>Login </Dropdown.Item></NavLink>
               }

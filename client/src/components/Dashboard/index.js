@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './dashboard.scss';
 
@@ -33,7 +34,8 @@ class Dashboard extends React.Component {
           </div>
 
           <p>Happy to see you again dear <span className="highlight">{user.name}</span></p>
-          <p>Hope you're still enjoy your role as <span className="highlight">{user.designation}</span> at <span className="highlight">{user.company !== null ? user.company.name : 'Unknown'}</span></p>
+          <p>Hope you're still enjoy your role as <span className="highlight">{user.designation}</span> at <span className="highlight">{ user.company !== null ? user.company.name : '' }</span>
+          </p>
   
           { isAdmin &&
           <div className="dashboard-content">            
