@@ -1,4 +1,4 @@
-# TypeORM-React-Redux---Login | Back-Side
+# TypeORM-React-Redux---Login | Server
 
 ## Installation & Usage
 

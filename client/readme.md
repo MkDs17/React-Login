@@ -1,4 +1,4 @@
-# TypeORM-React-Redux---Login | Client-Side
+# TypeORM-React-Redux---Login | Client
 
 ## Installation & Usage
 
