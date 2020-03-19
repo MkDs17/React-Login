@@ -1,7 +1,27 @@
-# Awesome Project Build with TypeORM
+# TypeORM-React-Redux---Login | Client-Side
 
-Steps to run this project:
+## Installation & Usage
 
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+### Once you have cloned the repo
+
+#### Go to the folder _"server"_
+```
+cd client
+```
+
+#### Then launch _yarn_ or _npm_ package installation
+```
+yarn install    or    npm i   
+```
+
+#### Finally, you can start the server with
+```
+yarn start    or    npm start
+```
+
+#### The project will be running on you localhost:8080
+
+---
+
+> your project is now an empty shell, you need to launch the **server** part for communication with the API and the success of your logins
+
