@@ -12,7 +12,7 @@ This is a **(Full Javascript)** starter kit for an application with a login comp
 * Logged Admin Page
 
 ## Main Stacks
-|           |            |             |                       |       |
+| Stacks    |            |             |                       |       |
 |:---------:|:----------:|:-----------:|:---------------------:|:-----:|
 | **Front** | React.js   | Redux       | Webpack               | Babel |
 | **Back**  | Node.js    | Express.js  | TypeORM (Typescript)  |
