@@ -1,0 +1,32 @@
+# TypeORM-React-Redux---Login
+
+![alt little gif of using this app](client/src/public/loginApp.gif)
+
+## What's this ?
+This is a **(Full Javascript)** little starter kit for an application with a login component allowing access to certain parts of the app if you are logged in or not. Two accesses (user or admin) also allow access to different content
+
+## Content
+* Homepage
+* Login Page
+* Logged User Page
+* Logged Admin Page
+
+## Main Stacks
+| Front         | Back                 |
+| ------------- | :-------------------:|
+| React.js      | Node.js              |
+| Redux         | Express.js           |
+| Webpack       | TypeORM (Typescript) |
+| Babel         |
+
+## Installation & Usage
+1. First clone the repo into your folder
+2. then carefully read the readme present in the 2 main folder which are **CLIENT** and **SERVER**
+
+> Everything is clearly explained inside both folders
+
+For any questions... RTFM :) 
+
+Jokin aside, you can reach me on GitHub or on [Linkedin](https://www.linkedin.com/in/mickael-rassicot/)
+
+Peace ! 
