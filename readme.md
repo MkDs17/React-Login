@@ -21,7 +21,7 @@ This is a **(Full Javascript)** starter kit for an application with a login comp
 
 ## Installation & Usage
 1. First clone the repo into your folder
-2. then carefully read the readme present in the 2 main folder which are [CLIENT](https://github.com/MkDs17/TypeORM-React-Redux---Login/tree/master/client) and **SERVER**
+2. then carefully read the readme present in the 2 main folder which are [CLIENT](https://github.com/MkDs17/TypeORM-React-Redux---Login/tree/master/client) and [SERVER](https://github.com/MkDs17/TypeORM-React-Redux---Login/tree/master/server)
 
 
 > #### Everything is clearly explained inside both folders
