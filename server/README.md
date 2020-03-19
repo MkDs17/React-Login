@@ -1,27 +1,17 @@
-# TypeORM-React-Redux---Login | Client-Side
+# TypeORM-React-Redux---Login | Back-Side
 
 ## Installation & Usage
 
-### Once you have cloned the repo
+#### Once you have cloned the repo
 
-#### Go to the folder _"server"_
-```
-cd client
-```
+1. Go to the folder _"server"_ `cd server`
+2. Run `yarn install` or `npm i` command
+3. Setup database settings inside `ormconfig.json` file (there's an export of my DB that you can import into a new freshly created database)
+4. Finally, you can start the server `yarn start or npm start`
 
-#### Then launch _yarn_ or _npm_ package installation
-```
-yarn install    or    npm i   
-```
-
-#### Finally, you can start the server with
-```
-yarn start    or    npm start
-```
-
-#### The project will be running on you localhost:8080
+#### The API will be running on your localhost:5000
 
 ---
 
-> your project is now an empty shell, you need to launch the **server** part for communication with the API and the success of your logins
+> with your Api server launched you'll be able to launch the front side and test the login component with the username and password stored in database
 

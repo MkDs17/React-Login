@@ -8,7 +8,7 @@
 2. Then run `yarn install` or `npm i `
 3. Finally, you can start the server `yarn start or npm start`
 
-#### The project will be running on you localhost:8080
+#### The project will be running on your localhost:8080
 
 ---
 
