@@ -1,23 +1,26 @@
 # TypeORM-React-Redux---Login | Client-Side
 
-## Once you have cloned the repo :
+### Once you have cloned the repo :
 
-### Go to the folder _"client"_
+#### Go to the folder _"client"_
 ```
 cd client
 ```
 
-### Then launch _yarn_ or _npm_ package installation
+#### Then launch _yarn_ or _npm_ package installation
 ```
 yarn install    or    npm i   
 ```
 
-### Finally, you can start the server with
+#### Finally, you can start the server with
 ```
 yarn start    or    npm start
 ```
 
-### The project will be running on you localhost:8080
+#### The project will be running on you localhost:8080
 
+---
+
+/!\ NOTE /!\
 > your project is now an empty shell, you need to launch the _server_ part for communication with the API and the success of your logins
 
