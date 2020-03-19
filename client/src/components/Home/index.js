@@ -20,7 +20,7 @@ const Home = () => {
         <div className="shadow">
           <div className="home-block-content">
             <div className="home-block-content-title">What's your app about ?</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>This is an application with a login component allowing access to certain parts of the app if you are logged in or not. Two accesses (user or admin) also allow access to different content</p>
           </div>
 
           <div className="home-block-content">
